@@ -9,11 +9,14 @@ namespace github_stats.Services
 
         private byte[] _content { get; set; }
 
+        private LetterStats _stats { get; set; }
+
         public GitHubFile(long size, string name, byte[] content)
         {
             _size = size;
             _name = name;
             _content = content;
+            _stats = new LetterStats(GetLetters());
         }
 
         public long GetSize()
@@ -26,14 +29,19 @@ namespace github_stats.Services
             return _name;
         }
 
-        public long GetLetters()
+        public byte[] GetLetters()
         {
-            return _content.Where(c => Char.IsLetter((char)c)).Count();
+            return _content.Where(c => Char.IsLetter((char)c)).ToArray();
+        }
+
+        public LetterStats GetLetterStats()
+        {
+            return _stats;
         }
 
         public override string ToString()
         {
-            return GetName() + " - Real Size: " + GetSize() + " - Letters: " + GetLetters();
+            return GetName() + " - Total Size: " + GetSize() + " \n   LetterStats: " + GetLetterStats().ToString();
         }
     }
 }

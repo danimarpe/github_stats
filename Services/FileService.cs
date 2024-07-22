@@ -6,7 +6,7 @@ namespace github_stats.Services
     {
         public IList<IFile> Sort(IEnumerable<IFile> files)
         {
-            return files.OrderByDescending(f => f.GetLetters()).ToList();
+            return files.OrderByDescending(f => f.GetSize()).ToList();
         }
 
         public void Print(IEnumerable<IFile> files)

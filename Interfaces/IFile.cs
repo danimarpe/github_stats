@@ -2,7 +2,7 @@
 {
     public interface IFile
     {
-        long GetLetters();
+        byte[] GetLetters();
 
         string GetName();
 
