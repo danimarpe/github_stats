@@ -1,0 +1,8 @@
+﻿################################################################################
+# Este archivo .gitignore ha sido creado automáticamente por Microsoft(R) Visual Studio.
+################################################################################
+
+/obj
+/.vs/github_stats/FileContentIndex
+/.vs
+/bin/Debug/net8.0
